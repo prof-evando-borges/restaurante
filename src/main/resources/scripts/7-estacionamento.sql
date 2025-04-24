@@ -1,10 +1,14 @@
+-- Remove as tabelas em ordem reversa (filhas antes das pais)
+DROP TABLE veiculo CASCADE CONSTRAINTS;
+DROP TABLE estacionamento CASCADE CONSTRAINTS;
+
+-- Cria as tabelas
 CREATE TABLE estacionamento (
     id NUMBER PRIMARY KEY,
     total_vagas NUMBER NOT NULL,
     vagas_ocupadas NUMBER DEFAULT 0,
     preco_por_hora NUMBER NOT NULL
 );
-
 
 CREATE TABLE veiculo (
     placa VARCHAR2(10) PRIMARY KEY,
