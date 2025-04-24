@@ -5,11 +5,11 @@ import br.com.fiap.restaurante.exceptions.EstacionamentoException;
 import java.sql.*;
 
 public class Estacionamento {
-    private static final String URL = "jdbc:oracle:thin:@oracle.fiap.com.br:1521:orcl";
-    private static final String USER = "USUARIO_ADICIONAR";
-    private static final String PASSWORD = "SENHA_ADICIONAR";
+    //private static final String URL = "jdbc:oracle:thin:@oracle.fiap.com.br:1521:orcl";
+    //private static final String USER = "USUARIO_ADICIONAR";
+    //private static final String PASSWORD = "SENHA_ADICIONAR";
 
-    public void mostrarEstacionamento() {
+    public void mostrarEstacionamento(String URL, String USER, String PASSWORD) {
         String query = "SELECT total_vagas, vagas_ocupadas, preco_por_hora FROM estacionamento WHERE id = 1";
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              Statement stmt = conn.createStatement();
@@ -32,7 +32,7 @@ public class Estacionamento {
     }
 
 
-    public boolean temVagasDisponiveis() {
+    public boolean temVagasDisponiveis(String URL, String USER, String PASSWORD) {
         String sql = "SELECT vagas_ocupadas, total_vagas FROM estacionamento WHERE id = 1";
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement stmt = conn.prepareStatement(sql);
@@ -49,8 +49,8 @@ public class Estacionamento {
         return false;
     }
 
-    public void adicionarVeiculo(Veiculo veiculo) {
-        if (!temVagasDisponiveis()) {
+    public void adicionarVeiculo(Veiculo veiculo, String URL, String USER, String PASSWORD) {
+        if (!temVagasDisponiveis(URL, USER, PASSWORD)) {
             throw new EstacionamentoException("Estacionamento lotado! Não é possível adicionar mais veículos.");
         }
         String insertQuery = "INSERT INTO veiculo (placa, modelo, horas_estacionado, estacionamento_id) VALUES (?, ?, ?, 1)";
@@ -73,7 +73,7 @@ public class Estacionamento {
         }
     }
 
-    public void testarConexao() {
+    public void testarConexao(String URL, String USER, String PASSWORD) {
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
             System.out.println("Conexão bem-sucedida!");
         } catch (SQLException e) {
@@ -81,7 +81,7 @@ public class Estacionamento {
         }
     }
 
-    public void removerVeiculo(String placa) {
+    public void removerVeiculo(String placa, String URL, String USER, String PASSWORD) {
         String precoQuery = "SELECT preco_por_hora FROM estacionamento WHERE id = 1";
         String horasQuery = "SELECT horas_estacionado FROM veiculo WHERE placa = ?";
         String deleteQuery = "DELETE FROM veiculo WHERE placa = ?";
