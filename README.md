@@ -1,16 +1,18 @@
-# Getting Started
+# Módulo Cliente - Sistema de Restaurante
 
-### Reference Documentation
+### Requisitos
 
 ### Instalação: 
 * JDK21
 * Maven
+* Driver JDBC do Oracle (ojdbc8.jar ou equivalente)
+  
 
-### Atividades:
-* Atualize o pacote entities com as entidades do seu módulo;
-* Atualize o script sql, na pasta scripts, do seu respectivo módulo.
-* Crie uma branch do seu módulo a partir da development.
-* Ao final, faça um Pull Request para a branch development.
-
+### Funcionalidades:
+* cadastrarCliente(Cliente cliente): Insere um novo cliente e retorna o ID gerado.
+* buscarClientePorId(int id): Busca e retorna um cliente específico pelo ID.
+* listarClientes(): Lista todos os clientes cadastrados.
+* atualizarCliente(Cliente cliente): Atualiza os dados de um cliente existente.
+* excluirCliente(int id): Remove um cliente do banco de dados pelo ID.
 
 
