@@ -7,6 +7,7 @@ CREATE TABLE estacionamento (
     id NUMBER PRIMARY KEY,
     total_vagas NUMBER NOT NULL,
     funcionario_id NUMBER,
+    
     vagas_ocupadas NUMBER DEFAULT 0,
     preco_por_hora NUMBER NOT NULL
     CONSTRAINT fk_est_func FOREIGN KEY (funcionario_id) REFERENCES funcionario(id)
