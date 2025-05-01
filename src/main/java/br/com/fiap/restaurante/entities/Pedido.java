@@ -1,10 +1,8 @@
 package br.com.fiap.restaurante.entities;
 
-import br.com.fiap.restaurante.exceptions.DatabaseException;
 
-import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
+import br.com.fiap.restaurante.entities.Produto;
 
 public class Pedido {
 
@@ -13,23 +11,27 @@ public class Pedido {
     private String status;
     private Cliente cliente;
     private List<Produto> produtos;
-    private List<Cardapio> cardapios;
+
+
+    //TODO Assim que subirem o cardápio, coloque novamente o relacionamento.
+
+   // private List<Cardapio> cardapios;
 
 
 
-    public Pedido(int id, int id_delivery, int id_cliente, List<Produto> produtos, List<Cardapio> cardapios) {
+    public Pedido(int id, int id_delivery, int id_cliente, List<Produto> produtos) {
         this.id = id;
         this.id_delivery = id_delivery;
       //  this.cliente = new Cliente();
         this.produtos = produtos;
-        this.cardapios = cardapios;
+       // this.cardapios = cardapios;
     }
-    public Pedido(int id, int id_delivery, String status, int id_cliente, List<Produto> produtos, List<Cardapio> cardapios) {
+    public Pedido(int id, int id_delivery, String status, int id_cliente, List<Produto> produtos) {
         this.id = id;
         this.id_delivery = id_delivery;
        // this.cliente = new Cliente();
         this.produtos = produtos;
-        this.cardapios = cardapios;
+       // this.cardapios = cardapios;
     }
 
     public int getId() {
@@ -62,10 +64,5 @@ public class Pedido {
     public void setProdutos(List<Produto> produtos) {
         this.produtos = produtos;
     }
-    public List<Cardapio> getCardapios() {
-        return cardapios;
-    }
-    public void setCardapios(List<Cardapio> cardapios) {
-        this.cardapios = cardapios;
-    }
+
 }

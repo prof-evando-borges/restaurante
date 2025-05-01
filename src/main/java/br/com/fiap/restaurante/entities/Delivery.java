@@ -50,7 +50,7 @@ public class Delivery {
                 String status = resultSet.getString("STATUS");
                 int id_cliente = resultSet.getInt("ID_CLIENTE");
 
-                pedidos.add(new Pedido(id, this.id, status, id_cliente, new ArrayList<Produto>(), new ArrayList<Cardapio>()));
+                //pedidos.add(new Pedido(id, this.id, status, id_cliente, new ArrayList<Produto>(), new ArrayList<Cardapio>()));
             }
         }
         catch (DatabaseException e) {
