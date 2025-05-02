@@ -3,6 +3,7 @@ package br.com.fiap.restaurante.entities;
 
 public class Drink extends MenuItem {
 
+    private int idDrink;
     private boolean alcoholic; // Whether the drink is alcoholic or not
     private String drinkType; // E.g., Soda, Juice, Cocktail, etc.
     private String container; // E.g., Glass, Bottle, Can
@@ -25,6 +26,15 @@ public class Drink extends MenuItem {
         this.size = size;
         this.drinkTemperature = drinkTemperature;
     }
+
+    public int getIdDrink() {
+        return idDrink;
+    }
+
+    public void setIdDrink(int idDrink) {
+        this.idDrink = idDrink;
+    }
+
 
     // Getters and setters
     public boolean isAlcoholic() {

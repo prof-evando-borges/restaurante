@@ -2,6 +2,7 @@ package br.com.fiap.restaurante.entities;
 
 public class Entree extends MenuItem {
 
+    private int idEntree;
     private String entreeType; // Type of entrée (e.g., Grilled, Fried, Steamed, etc.)
     private String portionSize; // Portion size (e.g., Small, Medium, Large)
     private String mainIngredients; // Main ingredients (e.g., Chicken, Beef, Vegetables)
@@ -61,5 +62,13 @@ public class Entree extends MenuItem {
         System.out.println("Portion Size: " + portionSize); // Displays portion size
         System.out.println("Main Ingredients: " + mainIngredients); // Displays main ingredients
         System.out.println("Serving Method: " + servingMethod); // Displays serving method
+    }
+
+    public int getIdEntree() {
+        return idEntree;
+    }
+
+    public void setIdEntree(int idEntree) {
+        this.idEntree = idEntree;
     }
 }

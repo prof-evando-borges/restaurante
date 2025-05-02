@@ -1,7 +1,16 @@
 package br.com.fiap.restaurante.entities;
 
 public class Dessert extends MenuItem {
-    
+
+    public int getIdDessert() {
+        return idDessert;
+    }
+
+    public void setIdDessert(int idDessert) {
+        this.idDessert = idDessert;
+    }
+
+    private int idDessert;
     private String dessertType;
     private String flavor;
     private String temperature;

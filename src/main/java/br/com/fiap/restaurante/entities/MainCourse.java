@@ -4,6 +4,8 @@ import java.util.Set;
 
 public class MainCourse extends MenuItem {
 
+
+    private int idMainCourse;
     private String mainCourseType; // Tipo de prato principal (e.g., Grilled, Steamed, Roasted)
     private String cookingMethod; // Método de preparo (e.g., Roasted, Grilled, Sautéed)
     private String spiceLevel; // Nível de pimenta (e.g., Mild, Medium, Spicy)
@@ -33,6 +35,14 @@ public class MainCourse extends MenuItem {
     // Getters e Setters
     public String getMainCourseType() {
         return mainCourseType;
+    }
+
+    public int getIdMainCourse() {
+        return idMainCourse;
+    }
+
+    public void setIdMainCourse(int idMainCourse) {
+        this.idMainCourse = idMainCourse;
     }
 
     public void setMainCourseType(String mainCourseType) {
@@ -102,6 +112,8 @@ public class MainCourse extends MenuItem {
     public void setKosher(boolean kosher) {
         this.kosher = kosher;
     }
+
+
 
     // Sobrescreve o método para exibir informações específicas para pratos principais
     @Override
