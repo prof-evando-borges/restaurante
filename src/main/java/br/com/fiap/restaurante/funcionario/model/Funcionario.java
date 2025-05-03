@@ -2,7 +2,9 @@ package br.com.fiap.restaurante.funcionario.model;
 
 import java.util.Date;
 
-public abstract class Funcionario extends FichaCadastral {
+import br.com.fiap.restaurante.funcionario.IFuncionario;
+
+public abstract class Funcionario extends FichaCadastral implements IFuncionario{
     private String cargo;
     private double salario;
     private double comissao;
