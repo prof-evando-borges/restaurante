@@ -1,5 +1,8 @@
 package br.com.fiap.restaurante.entities;
 
+import java.util.Collections;
+import java.util.Set;
+
 public class Dessert extends MenuItem {
 
     public int getIdDessert() {
@@ -21,17 +24,16 @@ public class Dessert extends MenuItem {
     private String healthInfo;
 
     public Dessert(String name, String description, double price, boolean available
-    		, int calories, boolean vegan, boolean glutenFree, String dessertType,
-            String flavor, String temperature, String allergens, String sweetnessLevel, String portionSize,
-            String mainIngredients, String healthInfo) {
-        super(name, description, price, available, calories, vegan, glutenFree);
+    		, int calories, boolean vegan, boolean glutenFree, Set<String> ingredients, String dessertType,
+                   String flavor, String temperature, String allergens, String sweetnessLevel, String portionSize, String healthInfo) {
+        super(name, description, price, available, calories, vegan, glutenFree, ingredients);
+
         this.dessertType = dessertType; // Inicializa tipo de doce
         this.flavor = flavor;
         this.temperature = temperature;
         this.allergens = allergens;
         this.sweetnessLevel = sweetnessLevel;
         this.portionSize = portionSize;
-        this.mainIngredients = mainIngredients;
         this.healthInfo = healthInfo;
     }
 

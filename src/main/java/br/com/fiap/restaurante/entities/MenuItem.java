@@ -1,5 +1,7 @@
 package br.com.fiap.restaurante.entities;
 
+import java.util.Set;
+
 public class MenuItem {
 
 	    private String name; // Name of the dish or drink
@@ -8,10 +10,20 @@ public class MenuItem {
 	    private boolean available; // Whether the item is available or not
 	    private int calories; // Number of calories
 	    private boolean vegan; // Whether it is vegan
-	    private boolean glutenFree; // Whether it is gluten-free
+	    private boolean glutenFree; // Whether it is gluten-free;
+
+	public Set<String> getIngredients() {
+		return ingredients;
+	}
+
+	public void setIngredients(Set<String> ingredients) {
+		this.ingredients = ingredients;
+	}
+
+	private Set<String> ingredients;
 
 	    public MenuItem(String name, String description, double price, boolean available,
-	                    int calories, boolean vegan, boolean glutenFree) {
+	                    int calories, boolean vegan, boolean glutenFree, Set<String> ingredients) {
 	        this.name = name;
 	        this.description = description;
 	        this.price = price;
@@ -19,6 +31,7 @@ public class MenuItem {
 	        this.calories = calories;
 	        this.vegan = vegan;
 	        this.glutenFree = glutenFree;
+			this.ingredients = ingredients;
 	    }
 
 	    public String getName() {

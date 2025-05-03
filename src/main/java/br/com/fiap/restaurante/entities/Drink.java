@@ -1,6 +1,8 @@
 package br.com.fiap.restaurante.entities;
 
 
+import java.util.Set;
+
 public class Drink extends MenuItem {
 
     private int idDrink;
@@ -14,10 +16,10 @@ public class Drink extends MenuItem {
 
     // Constructor for the Drink class
     public Drink(String name, String description, double price, String category, boolean available,
-                 int preparationTimeMinutes, int calories, boolean vegan, boolean glutenFree, 
-                 boolean alcoholic, String drinkType, String container, String flavor, 
-                 boolean carbonated, String size, String ingredients, String nutritionInfo, DrinkTemperature drinkTemperature) {
-        super(name, description, price, available, calories, vegan, glutenFree);
+                 int preparationTimeMinutes, int calories, boolean vegan, boolean glutenFree, Set<String> ingredients,
+                 boolean alcoholic, String drinkType, String container, String flavor,
+                 boolean carbonated, String size, String nutritionInfo, DrinkTemperature drinkTemperature) {
+        super(name, description, price, available, calories, vegan, glutenFree,ingredients);
         this.alcoholic = alcoholic;
         this.drinkType = drinkType;
         this.container = container;
