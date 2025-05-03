@@ -11,7 +11,7 @@ public class Entree extends MenuItem {
     private String servingMethod; // How the entrée is served (e.g., On a plate, With a side, etc.)
 
     // Constructor for the Entree class
-    public Entree(String name, String description, double price, boolean available, int calories, boolean vegan, boolean glutenFree, Set<String> ingredients, String entreeType,
+    public Entree(String name, String description, double price, boolean available, int calories, boolean vegan, boolean glutenFree, Set<Produto> ingredients, String entreeType,
                   String portionSize, String mainIngredients, String servingMethod) {
         super(name, description, price, available, calories, vegan, glutenFree, ingredients);
         this.entreeType = entreeType;

@@ -19,7 +19,7 @@ public class MainCourse extends MenuItem {
 
     // Construtor para a classe MainCourse
     public MainCourse(String name, String description, double price, boolean available,
-            int calories, boolean vegan, boolean glutenFree, Set<String> ingredients, String mainCourseType,
+            int calories, boolean vegan, boolean glutenFree, Set<Produto> ingredients, String mainCourseType,
                       String spiceLevel, String cookingMethod, Set<String> dietaryPreferences,
                       boolean organic, String source, boolean halal, boolean kosher) {
         super(name, description, price, kosher, calories, vegan, glutenFree, ingredients);

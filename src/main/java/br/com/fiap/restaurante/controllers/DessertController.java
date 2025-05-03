@@ -29,6 +29,12 @@ public class DessertController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<Dessert> listarDesserts() {
+        Produto biscoito = new Produto("biscoito", "Base crocante", "confeitaria");
+        Produto geleia = new Produto("geleia de frutas vermelhas", "Geleia artesanal", "doces");
+        Produto creme = new Produto("creme", "Creme de leite condensado", "laticínios");
+
+        Set<Produto> ingredientes = new HashSet<>(Arrays.asList(biscoito, geleia, creme));
+
         Dessert dessert = new Dessert(
                 "Cheesecake de Frutas Vermelhas",
                 "Delicioso cheesecake com frutas",
@@ -37,7 +43,7 @@ public class DessertController {
                 300,
                 false,
                 false,
-                new HashSet<>(Arrays.asList("biscoito", "geleia de frutas vermelhas", "creme")),
+                ingredientes,
                 "Torta",
                 "Frutas vermelhas",
                 "Cold",
@@ -56,6 +62,12 @@ public class DessertController {
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Dessert buscarPorId(@PathVariable Long id) {
+        Produto biscoito = new Produto("biscoito", "Base crocante", "confeitaria");
+        Produto geleia = new Produto("geleia de frutas vermelhas", "Geleia artesanal", "doces");
+        Produto creme = new Produto("creme", "Creme de leite condensado", "laticínios");
+
+        Set<Produto> ingredientes = new HashSet<>(Arrays.asList(biscoito, geleia, creme));
+
         Dessert dessert = new Dessert(
                 "Cheesecake de Frutas Vermelhas",
                 "Delicioso cheesecake com frutas",
@@ -64,7 +76,7 @@ public class DessertController {
                 300,
                 false,
                 false,
-                new HashSet<>(Arrays.asList("biscoito", "geleia de frutas vermelhas", "creme")),
+                ingredientes,
                 "Torta",
                 "Frutas vermelhas",
                 "Cold",

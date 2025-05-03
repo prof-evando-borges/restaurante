@@ -28,6 +28,12 @@ public class EntreeController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<Entree> listarEntradas() {
+        // Ingredientes como objetos Produto
+        Produto pao = new Produto("pão", "Pão francês", "padaria");
+        Produto salsicha = new Produto("salsicha", "Salsicha tipo hot dog", "açougue");
+
+        Set<Produto> ingredientes = new HashSet<>(Arrays.asList(pao, salsicha));
+
         List<Entree> entradas = Arrays.asList(
                 new Entree(
                         "Mini Cachorro Quente",
@@ -37,7 +43,7 @@ public class EntreeController {
                         600,
                         false,
                         false,
-                        new HashSet<>(Arrays.asList("pão", "salsicha")),
+                        ingredientes,
                         "Cozido",
                         "Pequena",
                         "Salsicha",
@@ -54,6 +60,11 @@ public class EntreeController {
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Entree buscarPorId(@PathVariable Long id) {
+        Produto pao = new Produto("pão", "Pão francês", "padaria");
+        Produto salsicha = new Produto("salsicha", "Salsicha tipo hot dog", "açougue");
+
+        Set<Produto> ingredientes = new HashSet<>(Arrays.asList(pao, salsicha));
+
         Entree entree = new Entree(
                 "Mini Cachorro Quente",
                 "Pão com salsicha",
@@ -62,7 +73,7 @@ public class EntreeController {
                 600,
                 false,
                 false,
-                new HashSet<>(Arrays.asList("pão", "salsicha")),
+                ingredientes,
                 "Cozido",
                 "Pequena",
                 "Salsicha",
@@ -70,7 +81,6 @@ public class EntreeController {
         );
         entree.setIdEntree(id.intValue());
 
-        // Verifica disponibilidade individual
         CardapioEstoqueValidator.validarDisponibilidade(entree, estoque);
 
         return entree;

@@ -28,6 +28,12 @@ public class MainCourseController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<MainCourse> listarMainCourses() {
+        Produto frango = new Produto("frango", "Filé de frango", "carnes");
+        Produto arroz = new Produto("arroz", "Arroz branco", "grãos");
+        Produto alface = new Produto("alface", "Alface crespa", "verduras");
+
+        Set<Produto> ingredientes = new HashSet<>(Arrays.asList(frango, arroz, alface));
+
         List<MainCourse> pratos = List.of(
                 new MainCourse(
                         "Frango Grelhado",
@@ -37,7 +43,7 @@ public class MainCourseController {
                         450,
                         true,
                         false,
-                        new HashSet<>(Arrays.asList("frango", "arroz", "alface")),
+                        ingredientes,
                         "Grelhado",
                         "Médio",
                         "Grelhado",
@@ -57,6 +63,12 @@ public class MainCourseController {
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public MainCourse buscarPorId(@PathVariable Long id) {
+        Produto frango = new Produto("frango", "Filé de frango", "carnes");
+        Produto arroz = new Produto("arroz", "Arroz branco", "grãos");
+        Produto alface = new Produto("alface", "Alface crespa", "verduras");
+
+        Set<Produto> ingredientes = new HashSet<>(Arrays.asList(frango, arroz, alface));
+
         MainCourse prato = new MainCourse(
                 "Frango Grelhado",
                 "Peito de frango grelhado com legumes",
@@ -65,7 +77,7 @@ public class MainCourseController {
                 450,
                 true,
                 false,
-                new HashSet<>(Arrays.asList("frango", "arroz", "alface")),
+                ingredientes,
                 "Grelhado",
                 "Médio",
                 "Grelhado",
