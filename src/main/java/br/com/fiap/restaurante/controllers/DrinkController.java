@@ -30,6 +30,12 @@ public class DrinkController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<Drink> listarDrinks() {
+        Produto agua = new Produto("água gaseificada", "Base líquida com gás", "bebidas");
+        Produto xarope = new Produto("xarope de cola", "Concentrado de refrigerante", "xaropes");
+        Produto corante = new Produto("corantes", "Corante caramelo IV", "aditivos");
+
+        Set<Produto> ingredientes = new HashSet<>(Arrays.asList(agua, xarope, corante));
+
         Drink drink = new Drink(
                 "Coca-Cola",
                 "Refrigerante tradicional",
@@ -40,7 +46,7 @@ public class DrinkController {
                 150,
                 false,
                 true,
-                new HashSet<>(Arrays.asList("água gaseificada", "xarope de cola", "corantes")),
+                ingredientes,
                 false,
                 "Lata",
                 "Cola",
@@ -61,6 +67,12 @@ public class DrinkController {
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Drink buscarPorId(@PathVariable Long id) {
+        Produto agua = new Produto("água gaseificada", "Base líquida com gás", "bebidas");
+        Produto xarope = new Produto("xarope de cola", "Concentrado de refrigerante", "xaropes");
+        Produto corante = new Produto("corantes", "Corante caramelo IV", "aditivos");
+
+        Set<Produto> ingredientes = new HashSet<>(Arrays.asList(agua, xarope, corante));
+
         Drink drink = new Drink(
                 "Coca-Cola",
                 "Refrigerante tradicional",
@@ -71,7 +83,7 @@ public class DrinkController {
                 150,
                 false,
                 true,
-                new HashSet<>(Arrays.asList("água gaseificada", "xarope de cola", "corantes")),
+                ingredientes,
                 false,
                 "Lata",
                 "Cola",
@@ -84,7 +96,6 @@ public class DrinkController {
         drink.setIdDrink(id.intValue());
 
         CardapioEstoqueValidator.validarDisponibilidade(drink, estoque);
-
         return drink;
     }
 

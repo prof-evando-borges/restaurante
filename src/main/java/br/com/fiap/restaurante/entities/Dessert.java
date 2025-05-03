@@ -24,7 +24,7 @@ public class Dessert extends MenuItem {
     private String healthInfo;
 
     public Dessert(String name, String description, double price, boolean available
-    		, int calories, boolean vegan, boolean glutenFree, Set<String> ingredients, String dessertType,
+    		, int calories, boolean vegan, boolean glutenFree, Set<Produto> ingredients, String dessertType,
                    String flavor, String temperature, String allergens, String sweetnessLevel, String portionSize, String healthInfo) {
         super(name, description, price, available, calories, vegan, glutenFree, ingredients);
 
