@@ -38,6 +38,26 @@ public class FuncionarioController {
 
     }
 
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void atualizarFuncionario(@PathVariable int id, @RequestBody Funcionario funcionario) {
+        // Lógica para atualizar funcionário
+        Funcionario funcionarioExistente = null;
+        if (funcionarioExistente == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Funcionário não encontrado");
+        }
+    }
+    
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deletarFuncionario(@PathVariable int id) {
+        // Lógica para deletar funcionário
+        Funcionario funcionario = null;
+        if (funcionario == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Funcionário não encontrado");
+        }
+    }
+
     @GetMapping("/{id}/comissao")
     @ResponseStatus(HttpStatus.OK)
     public double calcularComissao(@PathVariable int id) {
@@ -71,6 +91,4 @@ public class FuncionarioController {
         }
         return funcionario.calcularRescisao();
     }
-
-
 }
