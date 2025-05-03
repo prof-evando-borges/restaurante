@@ -1,8 +1,11 @@
 package br.com.fiap.restaurante.entities;
 
 
+import java.util.Set;
+
 public class Drink extends MenuItem {
 
+    private int idDrink;
     private boolean alcoholic; // Whether the drink is alcoholic or not
     private String drinkType; // E.g., Soda, Juice, Cocktail, etc.
     private String container; // E.g., Glass, Bottle, Can
@@ -13,10 +16,10 @@ public class Drink extends MenuItem {
 
     // Constructor for the Drink class
     public Drink(String name, String description, double price, String category, boolean available,
-                 int preparationTimeMinutes, int calories, boolean vegan, boolean glutenFree, 
-                 boolean alcoholic, String drinkType, String container, String flavor, 
-                 boolean carbonated, String size, String ingredients, String nutritionInfo, DrinkTemperature drinkTemperature) {
-        super(name, description, price, available, calories, vegan, glutenFree);
+                 int preparationTimeMinutes, int calories, boolean vegan, boolean glutenFree, Set<String> ingredients,
+                 boolean alcoholic, String drinkType, String container, String flavor,
+                 boolean carbonated, String size, String nutritionInfo, DrinkTemperature drinkTemperature) {
+        super(name, description, price, available, calories, vegan, glutenFree,ingredients);
         this.alcoholic = alcoholic;
         this.drinkType = drinkType;
         this.container = container;
@@ -25,6 +28,15 @@ public class Drink extends MenuItem {
         this.size = size;
         this.drinkTemperature = drinkTemperature;
     }
+
+    public int getIdDrink() {
+        return idDrink;
+    }
+
+    public void setIdDrink(int idDrink) {
+        this.idDrink = idDrink;
+    }
+
 
     // Getters and setters
     public boolean isAlcoholic() {

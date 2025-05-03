@@ -1,9 +1,12 @@
 package br.com.fiap.restaurante.entities;
 
+import java.util.Collections;
 import java.util.Set;
 
 public class MainCourse extends MenuItem {
 
+
+    private int idMainCourse;
     private String mainCourseType; // Tipo de prato principal (e.g., Grilled, Steamed, Roasted)
     private String cookingMethod; // Método de preparo (e.g., Roasted, Grilled, Sautéed)
     private String spiceLevel; // Nível de pimenta (e.g., Mild, Medium, Spicy)
@@ -16,10 +19,10 @@ public class MainCourse extends MenuItem {
 
     // Construtor para a classe MainCourse
     public MainCourse(String name, String description, double price, boolean available,
-            int calories, boolean vegan, boolean glutenFree, String mainCourseType,
+            int calories, boolean vegan, boolean glutenFree, Set<String> ingredients, String mainCourseType,
                       String spiceLevel, String cookingMethod, Set<String> dietaryPreferences,
                       boolean organic, String source, boolean halal, boolean kosher) {
-        super(name, description, price, kosher, calories, vegan, glutenFree);
+        super(name, description, price, kosher, calories, vegan, glutenFree, ingredients);
         this.mainCourseType = mainCourseType;
         this.cookingMethod = cookingMethod;
         this.spiceLevel = spiceLevel;
@@ -33,6 +36,14 @@ public class MainCourse extends MenuItem {
     // Getters e Setters
     public String getMainCourseType() {
         return mainCourseType;
+    }
+
+    public int getIdMainCourse() {
+        return idMainCourse;
+    }
+
+    public void setIdMainCourse(int idMainCourse) {
+        this.idMainCourse = idMainCourse;
     }
 
     public void setMainCourseType(String mainCourseType) {
@@ -102,6 +113,8 @@ public class MainCourse extends MenuItem {
     public void setKosher(boolean kosher) {
         this.kosher = kosher;
     }
+
+
 
     // Sobrescreve o método para exibir informações específicas para pratos principais
     @Override
