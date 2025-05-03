@@ -2,9 +2,8 @@ package br.com.fiap.restaurante.funcionario.model;
 
 import java.util.Date;
 
-import br.com.fiap.restaurante.funcionario.IFuncionario;
 
-public class Garcom extends Funcionario implements IFuncionario {
+public class Garcom extends Funcionario {
     private int mesasResponsaveis;
 
     public Garcom(int id,String nome, String telefone, String email, String cpf, String cargo,
@@ -30,42 +29,26 @@ public class Garcom extends Funcionario implements IFuncionario {
     }
 
     @Override
-    public void calcularComissao() {
+    public double calcularComissao() {
         double diasTrabalhadosPorMes = 30;
-        
-        double comissaoDiaria = (getSalario() / diasTrabalhadosPorMes) * getComissao() * mesasResponsaveis;
-        double comissaoSemanal = comissaoDiaria * (diasTrabalhadosPorMes / 4);
-        double comissaoMensal = comissaoDiaria * diasTrabalhadosPorMes;
-        
-        System.out.println("Comissão do Garçom: " + getNome());
-        System.out.println("Comissão diária: " + comissaoDiaria);
-        System.out.println("Comissão semanal: " + comissaoSemanal);
-        System.out.println("Comissão mensal: " + comissaoMensal);
+        double comissaoPorDia = (getSalario() / diasTrabalhadosPorMes) * getComissao();
+        double comissaoMensal = comissaoPorDia * diasTrabalhadosPorMes;
+        return comissaoMensal;
     }
 
     @Override
-    public void calcularSalario() {        
+    public double calcularSalario() {
         double salarioBase = getSalario();
         double comissao = getComissao();
-
-        double salarioTotal = salarioBase + (salarioBase * comissao * mesasResponsaveis);
-        System.out.println("Salário do Garçom: " + getNome());
-        System.out.println("Salário base: " + salarioBase);
-        System.out.println("Comissão: " + comissao);
-        System.out.println("Salário total: " + salarioTotal);
+        return salarioBase + (salarioBase * comissao);
     }
 
     @Override
-    public void calcularRescisao() {
+    public double calcularRescisao() {
         Date dataAdmissao = getDataAdmissao();
         double diasTrabalhados = (new Date().getTime() - dataAdmissao.getTime()) / (1000 * 60 * 60 * 24);
         double salarioBase = getSalario();
         double rescisao = salarioBase * diasTrabalhados;
-        
-        System.out.println("Rescisão do Garçom: " + getNome());
-        System.out.println("Dias trabalhados: " + diasTrabalhados);
-        System.out.println("Salário base: " + salarioBase);
-        System.out.println("Rescisão total: " + rescisao);
-        System.out.println("Rescisão total com comissão: " + (rescisao + (salarioBase * getComissao() * mesasResponsaveis)));
+        return rescisao;
     }
 }

@@ -1,10 +1,10 @@
 package br.com.fiap.restaurante.funcionario;
 
 public interface IFuncionario {
-    void calcularComissao();
+    double calcularComissao();
 
-    void calcularSalario();
+    double calcularSalario();
 
-    void calcularRescisao();
+    double calcularRescisao();
 
 }
