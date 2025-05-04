@@ -19,7 +19,7 @@ public class ClienteController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<Cliente> listarClientes() {
-        Cliente cliente = new Cliente("Evando","evando@gmail.com","(11) 555-5555");
+        Cliente cliente = new Cliente("Evando", "evando@gmail.com", "(11) 555-5555");
         cliente.setId(12);
 
         return List.of(cliente);
@@ -27,31 +27,24 @@ public class ClienteController {
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Cliente buscarPorId(@PathVariable Long id) {
-        Cliente cliente = new Cliente("Evando","evando@gmail.com","(11) 555-5555");
-        cliente.setId(12);
+    public Cliente buscarPorId(@PathVariable int id) {
+        Cliente cliente = new Cliente("Evando", "evando@gmail.com", "(11) 555-5555");
+        cliente.setId(id);
         return cliente;
     }
 
-   /* @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public Produto salvar(@RequestBody Produto produto) {
-        return null;
-    }
-
-    @GetMapping("/{id}")
-    public Produto buscarPorId(@PathVariable Long id) {
-        return null;
-    }
-
     @PutMapping("/{id}")
-    public Produto atualizar(@PathVariable Long id, @RequestBody Produto produto) {
-        return null;
+    @ResponseStatus(HttpStatus.OK)
+    public Cliente atualizar(@PathVariable int id, @RequestBody Cliente cliente) {
+        cliente.setId(id);
+        System.out.println(cliente);
+        return cliente;
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletar(@PathVariable Long id) {
-
-    }*/
+        System.out.println("Cliente com ID " + id + " deletado.");
+    }
 }
+
