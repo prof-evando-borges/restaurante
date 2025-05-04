@@ -14,7 +14,7 @@ public class EstoqueController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void adicionarProduto(@RequestBody Produto produto, @RequestParam int quantidade) {
-        System.out.println("Produto adicionado!");
+        System.out.println("Produto adicionado");
     }
 
     @GetMapping("/{id}")
