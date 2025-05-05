@@ -9,9 +9,13 @@ public class Pagamento {
     private LocalDateTime dataHora;
     private String tipoPagamento;
 
-    public Pagamento(double valor, String tipoPagamento) throws PagamentoException{
-        if (valor < 0) {
-        	throw new PagamentoException("Valor do pagamento não pode ser negativo"); 
+    public Pagamento(double valor, String tipoPagamento){
+        try {
+            if (valor < 0) {
+            	throw new PagamentoException("Valor do pagamento não pode ser negativo"); 
+            }
+        } catch (PagamentoException e) {
+        	System.out.println(e.getMessage());
         }
     	
     	this.valor = valor;
