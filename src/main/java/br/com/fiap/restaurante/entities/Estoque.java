@@ -1,4 +1,4 @@
-package br.com.restaurante.entities;
+package br.com.fiap.restaurante.entities;
 
 public class Estoque {
     private int id;
