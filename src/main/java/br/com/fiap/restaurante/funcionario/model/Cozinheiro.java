@@ -3,10 +3,9 @@ package br.com.fiap.restaurante.funcionario.model;
 import java.util.Date;
 import java.util.Map;
 
-import br.com.fiap.restaurante.funcionario.IFuncionario;
 import br.com.fiap.restaurante.funcionario.exception.PedidoInvalidoException;
 
-public class Cozinheiro extends Funcionario implements IFuncionario {
+public class Cozinheiro extends Funcionario  {
     
     private Map<String, String> pedidosAtivos;
 
@@ -16,44 +15,27 @@ public class Cozinheiro extends Funcionario implements IFuncionario {
     }
     
     @Override
-    public void calcularComissao() {
+    public double calcularComissao() {
         double diasTrabalhadosPorMes = 30;
         double comissaoPorDia = (getSalario() / diasTrabalhadosPorMes) * getComissao();
         double comissaoMensal = comissaoPorDia * diasTrabalhadosPorMes;
-        double comissaoDiaria = (getSalario() / diasTrabalhadosPorMes) * getComissao();
-        double comissaoSemanal = (getSalario() / 7) * getComissao();
-        
-        System.out.println("Comissão do Cozinheiro: " + getNome());
-        System.out.println("Comissão mensal: " + comissaoMensal);
-        System.out.println("Comissão diária: " + comissaoDiaria);
-        System.out.println("Comissão semanal: " + comissaoSemanal);
-        System.out.println("Comissão total: " + (comissaoMensal + comissaoDiaria + comissaoSemanal));
+        return comissaoMensal;
     }
 
     @Override
-    public void calcularSalario() {
+    public double calcularSalario() {
         double salarioBase = getSalario();
         double comissao = getComissao();
-        double salarioTotal = salarioBase + (salarioBase * comissao);
-        
-        System.out.println("Salário do Cozinheiro: " + getNome());
-        System.out.println("Salário base: " + salarioBase);
-        System.out.println("Comissão: " + comissao);
-        System.out.println("Salário total: " + salarioTotal);
+        return salarioBase + (salarioBase * comissao);
     }
 
     @Override
-    public void calcularRescisao() {
+    public double calcularRescisao() {
         Date dataAdmissao = getDataAdmissao();
         double diasTrabalhados = (new Date().getTime() - dataAdmissao.getTime()) / (1000 * 60 * 60 * 24);
         double salarioBase = getSalario();
         double rescisao = salarioBase * diasTrabalhados;
-        
-        System.out.println("Rescisão do Cozinheiro: " + getNome());
-        System.out.println("Dias trabalhados: " + diasTrabalhados);
-        System.out.println("Salário base: " + salarioBase);
-        System.out.println("Rescisão total: " + rescisao);
-        System.out.println("Rescisão total com comissão: " + (rescisao + (salarioBase * getComissao())));
+        return rescisao;
     }
 
     public String getPedidoAtivoStatus(String pedido) throws PedidoInvalidoException {

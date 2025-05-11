@@ -2,9 +2,7 @@ package br.com.fiap.restaurante.funcionario.model;
 
 import java.util.Date;
 
-import br.com.fiap.restaurante.funcionario.IFuncionario;
-
-public class Gerente extends Funcionario implements IFuncionario {
+public class Gerente extends Funcionario {
     private String departamento;
 
     public Gerente(int id,String nome, String telefone, String email, String cpf, String cargo,
@@ -26,32 +24,24 @@ public class Gerente extends Funcionario implements IFuncionario {
     }
 
     @Override
-    public void calcularComissao() {
-        System.out.println("Gerentes não recebem comissão.");
+    public double calcularComissao() {
+        return 0;
     }
 
     @Override
-    public void calcularSalario() {
+    public double calcularSalario() {
         double salarioBase = getSalario();
-        double salarioTotal = salarioBase;
-        
-        System.out.println("Salário do Gerente: " + getNome());
-        System.out.println("Salário base: " + salarioBase);
-        System.out.println("Comissão: " + 0);
-        System.out.println("Salário total: " + salarioTotal);
+        double comissao = getComissao();
+        return salarioBase + (salarioBase * comissao);
     }
 
     @Override
-    public void calcularRescisao() {
+    public double calcularRescisao() {
         Date dataAdmissao = getDataAdmissao();
         double diasTrabalhados = (new Date().getTime() - dataAdmissao.getTime()) / (1000 * 60 * 60 * 24);
         double salarioBase = getSalario();
         double rescisao = salarioBase * diasTrabalhados;
-        
-        System.out.println("Rescisão do Gerente: " + getNome());
-        System.out.println("Dias trabalhados: " + diasTrabalhados);
-        System.out.println("Salário base: " + salarioBase);
-        System.out.println("Rescisão total: " + rescisao);
+        return rescisao;
     }
     
 }
