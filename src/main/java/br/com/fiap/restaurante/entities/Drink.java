@@ -16,7 +16,7 @@ public class Drink extends MenuItem {
 
     // Constructor for the Drink class
     public Drink(String name, String description, double price, String category, boolean available,
-                 int preparationTimeMinutes, int calories, boolean vegan, boolean glutenFree, Set<String> ingredients,
+                 int preparationTimeMinutes, int calories, boolean vegan, boolean glutenFree, Set<Produto> ingredients,
                  boolean alcoholic, String drinkType, String container, String flavor,
                  boolean carbonated, String size, String nutritionInfo, DrinkTemperature drinkTemperature) {
         super(name, description, price, available, calories, vegan, glutenFree,ingredients);
