@@ -1,7 +1,7 @@
 package br.com.fiap.restaurante.controllers;
 
-import br.com.restaurante.entities.Estoque;
-import br.com.restaurante.entities.Produto;
+import br.com.fiap.restaurante.entities.Estoque;
+import br.com.fiap.restaurante.entities.Produto;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

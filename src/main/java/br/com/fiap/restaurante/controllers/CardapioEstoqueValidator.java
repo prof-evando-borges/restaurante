@@ -10,20 +10,20 @@ import java.util.stream.Collectors;
 public class CardapioEstoqueValidator {
 
     public static void validarDisponibilidade(MenuItem item, List<Estoque> estoque) {
-        Set<String> ingredientesNecessarios = item.getIngredients().stream()
+        /*Set<String> ingredientesNecessarios = item.getIngredients().stream()
                 .map(String::toLowerCase)
                 .map(String::trim)
-                .collect(Collectors.toSet());
+                .collect(Collectors.toSet());*/
 
         Set<String> ingredientesDisponiveis = estoque.stream()
                 .filter(e -> e.getQuantidade() > 0)
                 .map(e -> e.getProduto().getNome().toLowerCase().trim())
                 .collect(Collectors.toSet());
 
-        boolean temTodosIngredientes = ingredientesNecessarios.stream()
-                .allMatch(ingredientesDisponiveis::contains);
+      /*  boolean temTodosIngredientes = ingredientesNecessarios.stream()
+                .allMatch(ingredientesDisponiveis::contains);*/
 
-        item.setAvailable(temTodosIngredientes);
+       // item.setAvailable(temTodosIngredientes);
     }
 
     public static void validarDisponibilidadeEmLote(List<? extends MenuItem> itens, List<Estoque> estoque) {
