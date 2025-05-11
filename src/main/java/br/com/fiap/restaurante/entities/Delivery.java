@@ -10,7 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import br.com.restaurante.entities.Produto;
+import br.com.fiap.restaurante.entities.Produto;
 
 public class Delivery {
 
@@ -51,7 +51,7 @@ public class Delivery {
                 String status = resultSet.getString("STATUS");
                 int id_cliente = resultSet.getInt("ID_CLIENTE");
 
-                pedidos.add(new Pedido(id, this.id, status, id_cliente, new ArrayList<Produto>(), new ArrayList<Cardapio>()));
+               // pedidos.add(new Pedido(id, this.id, status, id_cliente, new ArrayList<Produto>(), new ArrayList<Cardapio>()));
             }
         }
         catch (DatabaseException e) {
